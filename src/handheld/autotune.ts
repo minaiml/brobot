@@ -15,6 +15,10 @@
  * the decision is testable without a device. The caller supplies the device facts
  * from deviceCapabilities/ModelStore and applies the result to ContextInitParams.
  *
+ * NOTE: autotune() maximises CONTEXT subject to fitting. Measured against the
+ * efficiency frontier that is not the same as maximising tokens — see
+ * efficiency.planHandheld(), which is the entry point callers should prefer.
+ *
  * Specification: https://github.com/minaiml/.github/blob/main/PLAYER.md
  */
 

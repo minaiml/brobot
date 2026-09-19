@@ -10,6 +10,9 @@
  *   - speed.ts     Encodes the MoE asymmetry: memory scales with TOTAL parameters,
  *                  speed scales with ACTIVE ones. Generation is memory-bandwidth
  *                  bound, so throughput is bandwidth / bytes-read-per-token.
+ *   - efficiency.ts Treats RAM as effort and asks what each gigabyte returns.
+ *                  planHandheld() is the entry point: it picks on the frontier
+ *                  instead of maximising one axis.
  *   - tiers.ts     Classifies a device and says which models are worth offering,
  *                  and estimates a file size before anything is downloaded.
  *
@@ -39,6 +42,19 @@ export {
   shouldUseSpeculativeDraft,
 } from './speed';
 export type {SpeedDevice, SpeedEstimate, SpeedShape} from './speed';
+
+export {
+  balanced,
+  bestByContext,
+  bestByEfficiency,
+  bestByThroughput,
+  choose,
+  explain,
+  frontier,
+  marginalCostOfContext,
+  planHandheld,
+} from './efficiency';
+export type {EfficiencyPoint, HandheldPlan, Preference} from './efficiency';
 
 export {TIERS, classifyDevice, estimateFileSizeBytes} from './tiers';
 export type {
