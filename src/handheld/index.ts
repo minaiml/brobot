@@ -7,6 +7,9 @@
  *                  (memoryEstimator) and knew what the device had free
  *                  (ModelStore.availableMemoryCeiling), but cache_type_k/v were
  *                  hardcoded 'f16' at every default. Nothing picked them.
+ *   - speed.ts     Encodes the MoE asymmetry: memory scales with TOTAL parameters,
+ *                  speed scales with ACTIVE ones. Generation is memory-bandwidth
+ *                  bound, so throughput is bandwidth / bytes-read-per-token.
  *   - tiers.ts     Classifies a device and says which models are worth offering,
  *                  and estimates a file size before anything is downloaded.
  *
@@ -27,6 +30,15 @@ export {
   KV_LADDER,
 } from './autotune';
 export type {HandheldDevice, KvCacheType, ModelShape, TunePlan} from './autotune';
+
+export {
+  bytesPerToken,
+  chooseBatchSizes,
+  estimateSpeed,
+  isMoE,
+  shouldUseSpeculativeDraft,
+} from './speed';
+export type {SpeedDevice, SpeedEstimate, SpeedShape} from './speed';
 
 export {TIERS, classifyDevice, estimateFileSizeBytes} from './tiers';
 export type {

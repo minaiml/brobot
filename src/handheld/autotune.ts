@@ -68,6 +68,8 @@ export interface TunePlan {
   nThreads: number;
   nGpuLayers: number;
   flashAttn: boolean;
+  /** types.ts deprecates the flash_attn boolean in favour of this. */
+  flashAttnType: 'auto' | 'on' | 'off';
   useMmap: boolean;
   /** Projected total footprint of this plan, bytes. */
   projectedBytes: number;
@@ -201,6 +203,7 @@ export function autotune(
           nThreads,
           nGpuLayers,
           flashAttn,
+          flashAttnType: flashAttn ? 'on' : 'auto',
           useMmap: true,
           projectedBytes,
           headroomBytes,
@@ -225,6 +228,7 @@ export function autotune(
     nThreads,
     nGpuLayers,
     flashAttn,
+    flashAttnType: flashAttn ? 'on' : 'auto',
     useMmap: true,
     projectedBytes,
     headroomBytes: budget - projectedBytes,
