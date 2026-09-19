@@ -1,0 +1,15 @@
+{
+  "fork": "minaiml/brobot",
+  "source": "a-ghorbani/pocketpal-ai",
+  "source_url": "https://github.com/a-ghorbani/pocketpal-ai",
+  "commit": "6cf3944a47a196d2a68b1ba05d2534bd0ec20dd5",
+  "branch": "main",
+  "fetched": "2026-09-19",
+  "upstream_license": "MIT",
+  "upstream_license_name": "MIT License",
+  "upstream_version": "PocketPal 1.17.3",
+  "role": "BROBOT — the model player, built from PocketPal AI (MIT, React Native + llama.rn)",
+  "note": "Not a pinned reference like the rest of the catalogue: this fork is DIVERGENT and is being built on. Upstream is MIT, so the derivative is distributable with attribution; the LICENSE and its copyright line are kept intact and BROBOT's own work is added alongside. Spec: https://github.com/minaiml/.github/blob/main/PLAYER.md",
+  "estate_license": "MIT — same as upstream, no relicensing",
+  "policy": "https://github.com/minaiml"
+}
